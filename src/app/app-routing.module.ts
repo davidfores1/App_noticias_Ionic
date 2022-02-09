@@ -10,7 +10,11 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },  {
+    path: 'listado-noticias',
+    loadChildren: () => import('./pages/listado-noticias/listado-noticias.module').then( m => m.ListadoNoticiasPageModule)
   }
+
 ];
 
 @NgModule({
