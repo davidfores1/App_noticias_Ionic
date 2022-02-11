@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Noticia } from 'src/app/models/noticia.model';
 import { NoticiasService } from '../../services/noticias.service';
 
 @Component({
@@ -7,14 +8,13 @@ import { NoticiasService } from '../../services/noticias.service';
   styleUrls: ['./listado-noticias.page.scss'],
 })
 export class ListadoNoticiasPage implements OnInit {
-
+   noticias:Noticia[];
   constructor(private noticiasService: NoticiasService) { }
 
   ngOnInit() {
 
     this.noticiasService.verNoticias().subscribe(response=>{
-      console.log(response);
-      
+      this.noticias = response;     
     }, (error=>{
       console.log(error);
       

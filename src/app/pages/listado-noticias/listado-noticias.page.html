@@ -9,15 +9,13 @@
 
 <ion-content>
 
-  <ion-card>
+  <ion-card *ngFor="let noticia of noticias">
     <ion-card-header>
-      <ion-card-title>Noticia Nueva</ion-card-title>
+      <ion-card-title>{{noticia.title }}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
-      <p> <strong>Autor: </strong>Tomas Garay</p>
+         {{noticia.body}}   <p> <strong>Autor: </strong>Tomas Garay</p>
       <p> <strong>Fecha: </strong>30/01/2019</p>
     </ion-card-content>
   </ion-card>
