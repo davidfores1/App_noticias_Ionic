@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Noticia } from 'src/app/models/noticia.model';
 import { NoticiasService } from '../../services/noticias.service';
 
@@ -9,7 +10,7 @@ import { NoticiasService } from '../../services/noticias.service';
 })
 export class ListadoNoticiasPage implements OnInit {
    noticias:Noticia[];
-  constructor(private noticiasService: NoticiasService) { }
+  constructor(private noticiasService: NoticiasService, private route:Router) { }
 
   ngOnInit() {
 
@@ -19,6 +20,10 @@ export class ListadoNoticiasPage implements OnInit {
       console.log(error);
       
     }))
+  }
+
+  irADetalle(noticia: Noticia){
+   this.route.navigate(['noticia-detalle',{noticia: JSON.stringify(noticia)}])
   }
 
 }

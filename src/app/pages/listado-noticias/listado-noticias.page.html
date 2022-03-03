@@ -14,7 +14,7 @@
       <ion-card-title>{{noticia.title }}</ion-card-title>
     </ion-card-header>
   
-    <ion-card-content>
+    <ion-card-content (click)="irADetalle(noticia)">
          {{noticia.body}}   <p> <strong>Autor: </strong>Tomas Garay</p>
       <p> <strong>Fecha: </strong>30/01/2019</p>
     </ion-card-content>
