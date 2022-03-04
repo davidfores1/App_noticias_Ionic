@@ -17,4 +17,8 @@ export class NoticiasService {
   eliminarNoticia(noticiaID: number):Observable<boolean>{
     return this.http.get<boolean>("https://jsonplaceholder.typicode.com/posts/" + noticiaID);
   }
+
+  agregarNoticia(noticia:Noticia):Observable<boolean>{
+    return this.http.post<boolean>("https://jsonplaceholder.typicode.com/posts/", noticia);
+  }
 }

@@ -12,13 +12,13 @@
  <ion-list>
   <ion-item>
     <ion-label position="floating">Titulo</ion-label>
-    <ion-input placeholder="Ingrese un titulo"></ion-input>
+    <ion-input [(ngModel)]="noticia.title" placeholder="Ingrese un titulo"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Noticia</ion-label>
-    <ion-textarea rows="10" placeholder="Descripción de la noticia"></ion-textarea>
+    <ion-textarea rows="10" [(ngModel)]="noticia.body" placeholder="Descripción de la noticia"></ion-textarea>
   </ion-item>
-  <ion-button expand="block">Guardar</ion-button>
+  <ion-button expand="block" (click)="guardar()">Guardar</ion-button>
  </ion-list> 
 
 </ion-content>

@@ -4,3 +4,8 @@ export interface Noticia{
     title:string;
     body:string;
 }
+
+export class Noticia{
+    title:string;
+    body:string;
+}
