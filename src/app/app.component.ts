@@ -9,6 +9,7 @@ export class AppComponent {
     { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
     { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
     { title: 'Noticias', url: 'listado-noticias', icon: 'book' },
+    { title: 'Agregar', url: 'agregar', icon: 'add' },
   ];
 
 }
