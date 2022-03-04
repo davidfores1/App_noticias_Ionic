@@ -38,4 +38,8 @@ export class ListadoNoticiasPage implements OnInit {
     )
   }
 
+  editar(noticia:Noticia){
+    this.route.navigate(['/agregar',{noticiaEditar: JSON.stringify(noticia)}]);
+  }
+
 }

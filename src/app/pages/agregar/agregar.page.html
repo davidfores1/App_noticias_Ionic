@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-back-button text="Regresar" defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>Agregar noticia</ion-title>
   </ion-toolbar>
@@ -18,7 +18,8 @@
     <ion-label position="floating">Noticia</ion-label>
     <ion-textarea rows="10" [(ngModel)]="noticia.body" placeholder="Descripción de la noticia"></ion-textarea>
   </ion-item>
-  <ion-button expand="block" (click)="guardar()">Guardar</ion-button>
+  <ion-button expand="block" (click)="guardar()" *ngIf="esEditable">Guardar</ion-button>
+  <ion-button expand="block" *ngIf="!esEditable" (click)="guardar()">Editar</ion-button>
  </ion-list> 
 
 </ion-content>

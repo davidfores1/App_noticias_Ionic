@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController,ToastController } from '@ionic/angular';
 import { Noticia} from '../../models/noticia.model';
 import { NoticiasService } from '../../services/noticias.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-agregar',
@@ -10,10 +11,18 @@ import { NoticiasService } from '../../services/noticias.service';
 })
 export class AgregarPage implements OnInit {
 
-  noticia: Noticia = new Noticia;
-  constructor(private NoticiasService:NoticiasService, public loadingController: LoadingController, public toastController: ToastController) { }
+  noticia: Noticia = new Noticia();
+  esEditable: boolean = true;
+
+  constructor(private NoticiasService:NoticiasService, public loadingController: LoadingController, public toastController: ToastController, private activatedRoute: ActivatedRoute ) { }
 
   ngOnInit() {
+
+    if(this.activatedRoute.snapshot.params.noticiaEditar != undefined){
+      
+      this.noticia = new Noticia(JSON.parse(this.activatedRoute.snapshot.params.noticiaEditar))
+      this.esEditable = false;
+    }
   }
 
   async guardar(){
