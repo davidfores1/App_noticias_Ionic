@@ -9,7 +9,7 @@
 
 <ion-content>
 
-  <ion-card *ngFor="let noticia of noticias">
+  <ion-card *ngFor="let noticia of noticias; let indice = index">
     <ion-card-header>
       <ion-card-title>{{noticia.title }}</ion-card-title>
     </ion-card-header>
@@ -19,7 +19,7 @@
       <p> <strong>Fecha: </strong>30/01/2019</p>
     </ion-card-content>
      <ion-buttons>
-      <ion-button fill="clear" color="danger">Eliminar</ion-button>
+      <ion-button fill="clear" color="danger" (click)="eliminarNoticia(noticia.id, indice)">Eliminar</ion-button>
     </ion-buttons>
   </ion-card>
 </ion-content>

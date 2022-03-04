@@ -26,4 +26,16 @@ export class ListadoNoticiasPage implements OnInit {
    this.route.navigate(['noticia-detalle',{noticia: JSON.stringify(noticia)}])
   }
 
+  eliminarNoticia(noticiaID:number, indice: number){
+    this.noticiasService.eliminarNoticia(noticiaID).subscribe(()=>{
+    this.noticias.splice(indice,1);
+      
+    },
+    error=>{
+      console.log(error);
+      
+    }
+    )
+  }
+
 }

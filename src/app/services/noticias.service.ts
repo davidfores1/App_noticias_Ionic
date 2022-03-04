@@ -11,6 +11,10 @@ export class NoticiasService {
   constructor(private http: HttpClient) { }
 
   verNoticias():Observable<Noticia[]>{
-    return this.http.get<Noticia[]>("https://jsonplaceholder.typicode.com/posts");
+    return this.http.get<Noticia[]>("https://jsonplaceholder.typicode.com/users");
+  }
+
+  eliminarNoticia(noticiaID: number):Observable<boolean>{
+    return this.http.get<boolean>("https://jsonplaceholder.typicode.com/posts/" + noticiaID);
   }
 }
