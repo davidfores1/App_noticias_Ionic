@@ -34,9 +34,13 @@ export class AgregarPage implements OnInit {
     await loading.present();
 
     this.NoticiasService.agregarNoticia(this.noticia).subscribe(()=>{
+      
+      console.log("guardado");
+      console.log(this.noticia.title);
+      console.log(this.noticia.body);
+
       this.noticia = new Noticia();
       loading.dismiss();
-      console.log("guardado");
       this.mostrarMensaje("Noticia guardada");      
     },
     error=>{
@@ -48,6 +52,34 @@ export class AgregarPage implements OnInit {
     
   }
 
+  
+  async editar(){
+
+    const loading = await this.loadingController.create({
+      message: 'Editando noticia...',
+      duration: 2000
+    });
+    await loading.present();
+
+    this.NoticiasService.editarNoticia(this.noticia).subscribe(()=>{
+
+      console.log("Editado");
+      console.log(this.noticia.title);
+      console.log(this.noticia.body);
+
+      this.noticia = new Noticia();
+      this.mostrarMensaje("Noticia Editada");      
+    },
+    error=>{
+      console.log(error);
+
+      this.mostrarMensaje("Ocurrio un error");
+      
+    })
+    
+  }
+
+  
   async mostrarMensaje(mensaje: string){
     const toast = await this.toastController.create({
       message: mensaje,
@@ -55,5 +87,5 @@ export class AgregarPage implements OnInit {
     });
     toast.present();
   }
-
+  
 }

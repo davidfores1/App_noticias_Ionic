@@ -19,7 +19,7 @@
     <ion-textarea rows="10" [(ngModel)]="noticia.body" placeholder="Descripción de la noticia"></ion-textarea>
   </ion-item>
   <ion-button expand="block" (click)="guardar()" *ngIf="esEditable">Guardar</ion-button>
-  <ion-button expand="block" *ngIf="!esEditable" (click)="guardar()">Editar</ion-button>
+  <ion-button expand="block" *ngIf="!esEditable" (click)="editar()">Editar</ion-button>
  </ion-list> 
 
 </ion-content>
